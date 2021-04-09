@@ -24,16 +24,18 @@ func init() {
 	//	fmt.Printf("open file error=%s\r\n", err.Error())
 	//	os.Exit(-1)
 	//}
-
 	//logs.SetOutput(logFile)
+
 	logs.SetOutput(os.Stdout)
 
 	// 设置日志级别为warn以上
 	//logs.SetLevel(logs.WarnLevel)
 	logs.SetLevel(logs.InfoLevel)
 }
+
 var channels = make(chan int, 20)
 var fileDir = "/Volumes/mamashaiimages/yellow/"
+
 func Download(tsfile models.Tsfile){
 	var f *os.File
 	arr := strings.Split(tsfile.Name, "/")
@@ -141,7 +143,7 @@ func DownloadAllTsFile(){
 var m = make(chan int, 1)
 func main() {
 	go SetMovieFinished()
-
 	go DownloadAllTsFile()
+	
 	<- m
 }
