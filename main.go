@@ -66,8 +66,7 @@ func Download(tsfile models.Tsfile){
 	}
 	f.Write(body)
 	f.Close()
-
-
+	
 	tsfile.Finished = true
 	tsfile.Filesize = len(body)
 	util.DB.Unscoped().Save(&tsfile)
@@ -144,6 +143,6 @@ var m = make(chan int, 1)
 func main() {
 	go SetMovieFinished()
 	go DownloadAllTsFile()
-	
+
 	<- m
 }

@@ -6,7 +6,7 @@ import (
 type Categroy struct {
 	gorm.Model
 	ParentID 	uint
-	Name 		string
+	Name 			string
 }
 
 func (Categroy) TableName() string{
