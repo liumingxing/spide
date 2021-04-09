@@ -1,14 +1,14 @@
 package models
 
 import (
-	gorm "github.com/jinzhu/gorm"
+  gorm "github.com/jinzhu/gorm"
 )
 type Categroy struct {
-	gorm.Model
-	ParentID 	uint
-	Name 			string
+  gorm.Model
+  ParentID    uint
+  Name        string
 }
 
 func (Categroy) TableName() string{
-	return "categories"
+  return "categories"
 }
